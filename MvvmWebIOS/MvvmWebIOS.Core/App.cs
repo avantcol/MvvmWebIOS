@@ -1,0 +1,18 @@
+using MvvmCross.Platform.IoC;
+
+namespace MvvmWebIOS.Core
+{
+    public class App : MvvmCross.Core.ViewModels.MvxApplication
+    {
+        public override void Initialize()
+        {
+            CreatableTypes()
+                .EndingWith("Service")
+                .AsInterfaces()
+                .RegisterAsLazySingleton();
+
+            //RegisterNavigationServiceAppStart<ViewModels.FirstViewModel>();
+            RegisterNavigationServiceAppStart<ViewModels.W2WebViewModel>();
+        }
+    }
+}
