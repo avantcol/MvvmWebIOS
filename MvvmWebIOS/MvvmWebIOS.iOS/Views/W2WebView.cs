@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.IO;
 using UIKit;
 using Foundation;
 using WebKit;
@@ -227,8 +228,41 @@ namespace MvvmWebIOS.iOS.Views
                 });
             }*/
             
-            var url = "https://x.com/index.jsp"; // NOTE: https required for iOS 9 ATS
-            Web.LoadRequest (new NSUrlRequest (new NSUrl (url)));
+            //var url = "https://coltrack.com/index.jsp"; // NOTE: https required for iOS 9 ATS
+            //Web.LoadRequest (new NSUrlRequest (new NSUrl (url)));
+            //Web.LoadHtmlString("html/index.html", new NSUrl(NSBundle.MainBundle.BundlePath) );
+
+            string contentDirectoryPath = Path.Combine (NSBundle.MainBundle.BundlePath, "Content/");
+            //var html = "<html><h1>Hello</h1><p>World</p></html>";
+            
+            
+            var html = @"
+            <html>
+                <head>
+                    <title>Xamarin Forms</title>
+                    <meta charset='utf-8' />
+                    <!--
+                    <link href='styles.css' rel='stylesheet'>
+                    -->
+                </head>
+                <body>
+                <h1>Xamarin.Forms</h1>
+                <p>Привет мир</p>
+                <!--
+                <img src='image2.png' />
+                         -->
+                </body>
+                </html>";
+            
+            //Web.LoadHtmlString(html, NSBundle.MainBundle.BundleUrl);
+            
+            //Web.LoadHtmlString("html/index.html", new NSUrl(Const.ContentDirectory, true) );
+            
+            
+            string index = Path.Combine (NSBundle.MainBundle.BundlePath, "html/menu4.html");
+            string webAppFolder = Path.Combine (NSBundle.MainBundle.BundlePath, "html");
+
+            Web.LoadFileUrl (new NSUrl ("file://"+index), new NSUrl ("file://"+webAppFolder));
 
         }
 
@@ -249,6 +283,9 @@ namespace MvvmWebIOS.iOS.Views
             return System.Web.HttpUtility.UrlDecode(data);
         }*/
 
+        
+        //public virtual WKNavigation LoadData (NSData data, String MIMEType, String characterEncodingName, NSUrl baseUrl)
+        
         protected string LoadFile(string path)
         {
             if (path == null)
@@ -317,19 +354,5 @@ namespace MvvmWebIOS.iOS.Views
             base.DidRotate(fromInterfaceOrientation);
             Web.Frame = View.Bounds;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -1,0 +1,590 @@
+<html lang="en">
+<head>
+    <title>Xamarin Forms</title>
+    <meta charset="utf-8" />
+    <!--
+    <link href="styles.css" rel="stylesheet">
+    -->
+
+
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+    <link href="./metronic_ui/theme/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="./metronic_ui/theme/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="./metronic_ui/theme/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="./metronic_ui/theme/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="./metronic_ui/theme/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <!--link href="./metronic_ui/theme/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/-->
+    <link href="./metronic_ui/theme/assets/global/css/components-rounded.css" rel="stylesheet" type="text/css" id="style_components"/>
+    <link href="./metronic_ui/theme/assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="./metronic_ui/theme/assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="./metronic_ui/theme/assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="./metronic_ui/theme/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+    <!--link rel="shortcut icon" href="favicon.ico"/-->
+    <link href="coltrack_ui/images/favicon.ico" rel="shortcut icon" >
+
+    <link href="./bootstrap-slider-master/dist/css/bootstrap-slider.min.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+
+
+
+
+
+<div>
+    <div style="visibility: hidden; height:0" >
+        <input id='datePicker00' style="visibility: hidden;" />
+    </div>
+    <div style="visibility: hidden; height: 0" >
+        <div id="rtAlertDivDetails"></div>
+    </div>
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a class="navbar-brand" href="index.jsp">Coltrack iOS</a>
+                <!--a href="index.jsp">
+                    <img src="./metronic_ui/theme/assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>
+                </a-->
+                <div class="menu-toggler sidebar-toggler hide">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <!-- BEGIN NOTIFICATION DROPDOWN -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="icon-bell"></i>
+                            <span id="rt-count" class="badge badge-default"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="external">
+                                <h3>
+                                    <span id="rt-list-count" class="bold">0 alertas
+                                    </span> pendientes</h3>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('AlertRTGrid')">ver todas</a>
+                            </li>
+                            <li>
+                                <ul id="rt-list-int" class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- END NOTIFICATION DROPDOWN -->
+                    <!-- BEGIN INBOX DROPDOWN -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="icon-envelope"></i>
+                            <!--<span class="badge badge-default">4 </span>-->
+                        </a>
+                    </li>
+                    <!-- END INBOX DROPDOWN -->
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li class="dropdown dropdown-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <!--
+                            <img alt="" class="img-circle" src="icon?params={iconType:8,company_id:< % =company.getId() % >}" />
+                            -->
+                            <span class="username username-hide-on-mobile">
+                                <!--
+					            <%=company.getName()%> 
+					            -->
+                                Company Name
+					            </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                    <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li class="dropdown dropdown-quick-sidebar-toggler">
+                        <a href="javascript:;" class="dropdown-toggle"><i class="icon-logout"></i></a>
+                    </li>
+                    <!-- END QUICK SIDEBAR TOGGLER -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <ul class="page-sidebar-menu  page-sidebar-menu-closed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                    <li class="sidebar-toggler-wrapper">
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <div class="sidebar-toggler" id="sidebar-toggler">
+                        </div>
+                        <!-- END SIDEBAR TOGGLER BUTTON -->
+                    </li>
+                    <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                    <li class="sidebar-search-wrapper">
+                        <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+                        <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+                        <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+                        <!-- END RESPONSIVE QUICK SEARCH FORM -->
+                    </li>
+                    <!--li class="start active open"-->
+                    <li >
+                        <a href="#">
+                            <i class="icon-globe"></i>
+                            <span class="title">Mapas</span>
+                            <span class="selected"></span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('GPSUnitsMap')">
+                                    -Móviles</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('SpeedingMap')">
+                                    -Velocidad</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('ExcesoRPMMap')">
+                                    -Exceso RPM</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('AddressReports')">
+                                    -Direcciones</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" onclick="_staticRef_.viewManager.displayView('WeekDashboard')">
+                            <i class="icon-speedometer"></i>
+                            <span class="title">Tablero</span>
+                            <span class="arrow "></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-directions"></i>
+                            <span class="title">Recorridos</span>
+                            <span class="arrow "></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Tracker')">
+                                    -Por fechas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Reportes</span>
+                            <span class="arrow "></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('GPSUnits')">
+                                    -Móviles</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Reports')">
+                                    -Detallado</a>
+                            </li>
+                            <li>
+                                <a href="#"  onclick="_staticRef_.viewManager.displayView('SpeedingGrid')">
+                                    -Velocidad</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Desempeno')">
+                                    -Desempeño</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Infracciones')">
+                                    -Infracciones</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('AlarmClockReports')">
+                                    -Despertador</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('RpmReport')">
+                                    -Calificacion General Vehículos</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('EcoRpmReport')">
+                                    -Conducción Ecológica</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('ExcesoRPMReport')">
+                                    -Exceso RPM</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('offlineReports')">
+                                    -Descargas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Informes</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Cuadrantes')">
+                                    -Cuadrantes</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('CuadrantesDatatable')">
+                                    -Cuadrantes Datatable</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-wrench"></i>
+                            <span class="title">Mantenimiento</span>
+                            <span class="arrow "></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('FleetVehicles')">
+                                    <i class="fa fa-bus"></i>
+                                    -Vehiculos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('ServiceTypes')">
+                                    <i class="fa fa-cube"></i>
+                                    -Tipos de Servicios</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('RenewalTypes')">
+                                    <i class="fa fa-cubes"></i>
+                                    -Tipos de Renovaciones</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('ServiceReminders')">
+                                    <i class="fa fa-exclamation"></i>
+                                    -Alarmas de Servicio</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('RenewalReminders')">
+                                    <i class="fa fa-exclamation-triangle"></i>
+                                    -Alarmas de Renovaciones</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('ServiceEntries')">
+                                    <i class="fa fa-book"></i>
+                                    -Registro de Servicio</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Odometers')">
+                                    <i class="fa fa-book"></i>
+                                    -Historia Odómetro</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-check-square-o"></i>
+                            <span class="title">Questionnaire</span>
+                            <span class="arrow "></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Questionnaires')">
+                                    <i class="fa fa-check-square-o"></i>
+                                    -Questionnaires
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Questions')">
+                                    <i class="fa fa-question"></i>
+                                    -Questions</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('QuestionnaireAnswers')">
+                                    <i class="fa fa-comments"></i>
+                                    -Questionnaire Answers</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-chain"></i>
+                            <span class="title">Comandos</span>
+                            <span class="arrow "></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Comandos')">
+                                    <i class="fa fa-chain"></i>
+                                    -Comandos</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-video-camera"></i>
+                            <span class="title">Camaras</span>
+                            <span class="arrow "></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('WowzaCamera')">
+                                    <i class="fa fa-television"></i>
+                                    -En vivo</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('FileExplorer')">
+                                    <i class="fa fa-hdd-o"></i>
+                                    -Grabaciones</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <i class="icon-settings"></i>
+                            <span class="title">Configuración</span>
+                            <span class="arrow "></span></a>
+                        <ul class="sub-menu">
+
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Users')">
+                                    -Usuarios</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('UserLog')">
+                                    -Registro usuarios</a>
+                            </li>
+
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('VehicleData')">
+                                    -Unidades GPS</a>
+                            </li>
+
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('DriverData')">
+                                    -Conductores</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Groups')">
+                                    -Grupos</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Icons')">
+                                    -Iconos</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Landmarks')">
+                                    -Lugares</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Routes')">
+                                    -Geocercas</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;" onclick="_staticRef_.viewManager.displayView('Alerts')">
+                                    -Alertas</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Sound')">
+                                    -Audio</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Despertador')">
+                                    -Despertador</a>
+                            </li>
+                            <li>
+                                <a href="radar.jsp" >
+                                    -Ir a versión de escritorio</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-cog"></i>
+                            <span class="title">Administración</span>
+                            <span class="arrow "></span></a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('Companies')">
+                                    -Empresas</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('GPSUnitsAdmin')">
+                                    -Unidades</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('UsersAdmin')">
+                                    -Usuarios</a>
+                            </li>
+                            <li>
+                                <a href="#" onclick="_staticRef_.viewManager.displayView('EventTemplates')">
+                                    -Plantilla de Eventos</a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:;" onclick="_staticRef_.viewManager.displayView('WowzaCamera')">
+                                    -Camaras
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+
+                    <li class="last ">
+                        <a href="logout2.jsp">
+                            <i class="icon-close">
+                            </i><span class="title text-danger">Salir</span></a>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content" id="page-content" >
+                <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                Widget settings form goes here
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn blue">Save changes</button>
+                                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--Page content goes here-->
+
+                        <div class="panel panel-cascade" id="inside_panel">
+                            <!--div class="panel-body nopadding"  style="height: 700px;" -->   <!-- OpenLayers require non-zero div height -->
+                            <div id="map_area_container" class="panel-body nopadding" >
+                                <div id="main_map" >
+                                    <div id="popup" class="coltrack"></div>
+                                </div>
+                            </div>
+                            <!-- /panel body -->
+                        </div>
+
+                    </div>
+                </div>
+                <!-- END PAGE CONTENT-->
+            </div>
+        </div>
+        <!-- END CONTENT -->
+        <!-- BEGIN QUICK SIDEBAR -->
+        <a href="javascript:;" class="page-quick-sidebar-toggler"><i class="icon-close"></i></a>
+        <div class="page-quick-sidebar-wrapper">
+            <div class="page-quick-sidebar">
+                <div class="nav-justified">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active">
+                            <a href="#quick_sidebar_tab_1" data-toggle="tab">
+                                Moviles  </a>
+                        </li>
+
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active page-quick-sidebar-chat" id="quick_sidebar_tab_1">
+                            <div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list">
+
+                                <ul id="sidebar-unit-list" class="media-list list-items fa-ul">
+                                </ul>
+                                <ul class="media-list list-items">
+                                </ul>
+                            </div>
+                            <div class="page-quick-sidebar-item">
+                                <div class="page-quick-sidebar-chat-user">
+                                    <div class="page-quick-sidebar-nav">
+                                        <a href="javascript:;" class="page-quick-sidebar-back-to-list"><i class="icon-arrow-left"></i>Atrás</a>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END QUICK SIDEBAR -->
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2015 &copy; Coltrack SAS.
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

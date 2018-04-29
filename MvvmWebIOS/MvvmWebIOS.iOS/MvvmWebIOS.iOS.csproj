@@ -121,6 +121,37 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entitlements.plist" />
+    <Content Include="Resources\html\index.html" />
+    <Content Include="Resources\html\menu4.html" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\admin\layout\css\custom.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\admin\layout\css\layout.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\admin\layout\css\themes\darkblue.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\admin\layout\img\sidebar_inline_toggler_icon_darkblue.jpg" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\admin\layout\scripts\demo.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\admin\layout\scripts\layout.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\admin\layout\scripts\quick-sidebar.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\css\components-rounded.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\css\plugins.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\amcharts\amcharts\amcharts.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\amcharts\amcharts\pie.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\amcharts\amcharts\radar.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\amcharts\amcharts\serial.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\amcharts\amcharts\themes\light.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\bootstrap-hover-dropdown\bootstrap-hover-dropdown.min.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\bootstrap-switch\css\bootstrap-switch.min.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\bootstrap-switch\js\bootstrap-switch.min.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\jquery-migrate.min.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\jquery.blockui.min.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\jquery.min.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\simple-line-icons\simple-line-icons.min.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\uniform\css\uniform.default.css" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\plugins\uniform\jquery.uniform.min.js" />
+    <Content Include="Resources\html\metronic_ui\theme\assets\global\scripts\metronic.js" />
     <Content Include="Views\FirstView.storyboard" />
     <Content Include="Views\W3WebView.storyboard" />
   </ItemGroup>
